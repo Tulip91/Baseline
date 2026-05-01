@@ -28,22 +28,22 @@
                            FontSize="13.5" />
             </StackPanel>
 
-            <StackPanel Margin="0,16,0,0"
+            <StackPanel Margin="0,22,0,0"
                         Orientation="Horizontal">
                 <Button Width="230"
-                        Height="50"
+                        Height="58"
                         Content="Capture Snapshot"
                         Command="{Binding CaptureCommand}" />
                 <Button Margin="14,0,0,0"
                         Width="142"
-                        Height="50"
+                        Height="58"
                         Content="Compare"
                         Style="{StaticResource SecondaryButtonStyle}" />
             </StackPanel>
         </StackPanel>
 
         <Grid Grid.Row="1"
-              Margin="0,14,0,0">
+              Margin="0,24,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="720" />
                 <ColumnDefinition Width="20" />
@@ -57,41 +57,37 @@
                 </Grid.RowDefinitions>
 
                 <UniformGrid Columns="3"
-                             Height="78"
-                             Margin="0,0,0,10">
+                             Margin="0,0,0,18">
                     <Border Style="{StaticResource SectionCardStyle}"
-                            Padding="14,10"
                             Margin="0,0,14,0">
                         <StackPanel>
                             <TextBlock Text="Categories"
                                        Style="{StaticResource MutedLabelTextStyle}" />
-                            <TextBlock Margin="0,3,0,0"
+                            <TextBlock Margin="0,8,0,0"
                                        Text="{Binding SelectedCategoryCount}"
-                                       FontSize="24"
+                                       FontSize="28"
                                        FontWeight="SemiBold" />
                         </StackPanel>
                     </Border>
                     <Border Style="{StaticResource SectionCardStyle}"
-                            Padding="14,10"
                             Margin="0,0,14,0">
                         <StackPanel>
                             <TextBlock Text="Registry"
                                        Style="{StaticResource MutedLabelTextStyle}" />
-                            <TextBlock Margin="0,3,0,0"
+                            <TextBlock Margin="0,8,0,0"
                                        Text="{Binding SelectedRegistryTemplateCount}"
-                                       FontSize="24"
+                                       FontSize="28"
                                        FontWeight="SemiBold" />
                         </StackPanel>
                     </Border>
                     <Border Style="{StaticResource SectionCardStyle}"
-                            Padding="14,10"
                             Margin="0">
                         <StackPanel>
                             <TextBlock Text="Policies"
                                        Style="{StaticResource MutedLabelTextStyle}" />
-                            <TextBlock Margin="0,3,0,0"
+                            <TextBlock Margin="0,8,0,0"
                                        Text="{Binding SelectedPolicyTemplateCount}"
-                                       FontSize="24"
+                                       FontSize="28"
                                        FontWeight="SemiBold" />
                         </StackPanel>
                     </Border>
@@ -103,7 +99,7 @@
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
 
@@ -122,19 +118,18 @@
                         </Grid>
 
                         <ItemsControl Grid.Row="1"
-                                      Height="132"
-                                      Margin="0,14,0,0"
+                                      Margin="0,18,0,0"
                                       ItemsSource="{Binding Categories}">
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
-                                    <UniformGrid Columns="4" />
+                                    <UniformGrid Columns="2" />
                                 </ItemsPanelTemplate>
                             </ItemsControl.ItemsPanel>
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate>
-                                    <Border Margin="0,0,10,10"
-                                            MinHeight="56"
-                                            Padding="12,8"
+                                    <Border Margin="0,0,12,12"
+                                            MinHeight="78"
+                                            Padding="16,12"
                                             Background="{StaticResource InputBackgroundBrush}"
                                             BorderBrush="{StaticResource SoftBorderBrush}"
                                             BorderThickness="1"
@@ -144,8 +139,12 @@
                                                   IsChecked="{Binding IsSelected}">
                                             <StackPanel>
                                                 <TextBlock Text="{Binding DisplayName}"
-                                                            FontWeight="SemiBold"
-                                                            TextTrimming="CharacterEllipsis" />
+                                                           FontWeight="SemiBold"
+                                                           TextTrimming="CharacterEllipsis" />
+                                                <TextBlock Margin="0,4,0,0"
+                                                           Text="{Binding Description}"
+                                                           Style="{StaticResource MutedLabelTextStyle}"
+                                                           TextTrimming="CharacterEllipsis" />
                                             </StackPanel>
                                         </CheckBox>
                                     </Border>

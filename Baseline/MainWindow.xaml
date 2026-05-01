@@ -8,7 +8,7 @@
         Title="Baseline"
         Icon="Assets/Brand/baseline-mark.png"
         Width="1560"
-        Height="900"
+        Height="980"
         MinWidth="1280"
         MinHeight="720"
         ResizeMode="CanResize"
