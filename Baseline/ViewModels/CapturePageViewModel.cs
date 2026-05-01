@@ -1,4 +1,5 @@
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using BaseLine.Core;
 using BaseLine.Infrastructure;
 using BaseLine.Services;
@@ -55,6 +56,18 @@ public sealed class CapturePageViewModel : PageViewModelBase
         PolicyTemplates = new ObservableCollection<RegistryTemplateSelectionViewModel>(_registryTemplateCatalog.PolicyDefaults.Select(item => new RegistryTemplateSelectionViewModel(item)));
         ActiveAdapters = new ObservableCollection<NetworkAdapterProfile>();
 
+        foreach (var category in Categories)
+        {
+            category.PropertyChanged += CaptureScopeOnPropertyChanged;
+        }
+
+        foreach (var template in RegistryTemplates.Concat(PolicyTemplates))
+        {
+            template.PropertyChanged += CaptureScopeOnPropertyChanged;
+        }
+
+        ActiveAdapters.CollectionChanged += (_, _) => OnPropertyChanged(nameof(AdapterCount));
+
         CaptureCommand = new AsyncRelayCommand(CaptureAsync, () => !IsBusy);
         RefreshAdaptersCommand = new RelayCommand(RefreshAdapters);
         AddRegistryEntryCommand = new RelayCommand(AddRegistryEntry);
@@ -65,6 +78,11 @@ public sealed class CapturePageViewModel : PageViewModelBase
     public ObservableCollection<RegistryTemplateSelectionViewModel> RegistryTemplates { get; }
     public ObservableCollection<RegistryTemplateSelectionViewModel> PolicyTemplates { get; }
     public ObservableCollection<NetworkAdapterProfile> ActiveAdapters { get; }
+
+    public int SelectedCategoryCount => Categories.Count(item => item.IsSelected);
+    public int SelectedRegistryTemplateCount => RegistryTemplates.Count(item => item.IsSelected);
+    public int SelectedPolicyTemplateCount => PolicyTemplates.Count(item => item.IsSelected);
+    public int AdapterCount => ActiveAdapters.Count;
 
     public AsyncRelayCommand CaptureCommand { get; }
     public RelayCommand RefreshAdaptersCommand { get; }
@@ -212,7 +230,7 @@ public sealed class CapturePageViewModel : PageViewModelBase
             return;
         }
 
-        RegistryTemplates.Add(new RegistryTemplateSelectionViewModel(new StructuredRegistryTemplate
+        var template = new RegistryTemplateSelectionViewModel(new StructuredRegistryTemplate
         {
             Id = $"custom-registry-{Guid.NewGuid():N}",
             GroupName = "Custom",
@@ -223,7 +241,10 @@ public sealed class CapturePageViewModel : PageViewModelBase
             SafetyLevel = SafetyLevel.Advanced,
             IsCustom = true,
             IsDefaultSelected = true
-        }));
+        });
+        template.PropertyChanged += CaptureScopeOnPropertyChanged;
+        RegistryTemplates.Add(template);
+        OnPropertyChanged(nameof(SelectedRegistryTemplateCount));
 
         CustomRegistryPath = string.Empty;
         CustomRegistryValueName = string.Empty;
@@ -236,7 +257,7 @@ public sealed class CapturePageViewModel : PageViewModelBase
             return;
         }
 
-        PolicyTemplates.Add(new RegistryTemplateSelectionViewModel(new StructuredRegistryTemplate
+        var template = new RegistryTemplateSelectionViewModel(new StructuredRegistryTemplate
         {
             Id = $"custom-policy-{Guid.NewGuid():N}",
             GroupName = "Custom",
@@ -247,7 +268,10 @@ public sealed class CapturePageViewModel : PageViewModelBase
             SafetyLevel = SafetyLevel.Advanced,
             IsCustom = true,
             IsDefaultSelected = true
-        }));
+        });
+        template.PropertyChanged += CaptureScopeOnPropertyChanged;
+        PolicyTemplates.Add(template);
+        OnPropertyChanged(nameof(SelectedPolicyTemplateCount));
 
         CustomPolicyPath = string.Empty;
         CustomPolicyValueName = string.Empty;
@@ -258,6 +282,19 @@ public sealed class CapturePageViewModel : PageViewModelBase
         return summary.HasFailures
             ? $"Captured {capturedCategoryCount} categories with {summary.FailedCategories} issues."
             : $"Captured {capturedCategoryCount} categories successfully.";
+    }
+
+    private void CaptureScopeOnPropertyChanged(object? sender, PropertyChangedEventArgs e)
+    {
+        if (e.PropertyName != nameof(CategorySelectionItemViewModel.IsSelected) &&
+            e.PropertyName != nameof(RegistryTemplateSelectionViewModel.IsSelected))
+        {
+            return;
+        }
+
+        OnPropertyChanged(nameof(SelectedCategoryCount));
+        OnPropertyChanged(nameof(SelectedRegistryTemplateCount));
+        OnPropertyChanged(nameof(SelectedPolicyTemplateCount));
     }
 
     private static string BuildCaptureDialog(string path, CaptureSummary summary, int capturedCategoryCount)

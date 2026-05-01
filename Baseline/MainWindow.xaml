@@ -7,9 +7,9 @@
         mc:Ignorable="d"
         Title="Baseline"
         Icon="Assets/Brand/baseline-mark.png"
-        Width="1420"
-        Height="860"
-        MinWidth="1120"
+        Width="1560"
+        Height="900"
+        MinWidth="1280"
         MinHeight="720"
         ResizeMode="CanResize"
         WindowStyle="None"
@@ -30,7 +30,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="58" />
                 <RowDefinition Height="*" />
-                <RowDefinition Height="32" />
+                <RowDefinition Height="0" />
             </Grid.RowDefinitions>
 
             <Border Grid.Row="0"
@@ -39,7 +39,7 @@
                     MouseLeftButtonDown="TitleBar_OnMouseLeftButtonDown">
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="258" />
+                        <ColumnDefinition Width="260" />
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="148" />
                     </Grid.ColumnDefinitions>
@@ -51,7 +51,7 @@
                         <Border Width="34"
                                 Height="34"
                                 CornerRadius="10"
-                                Background="{StaticResource AccentMutedBrush}">
+                                Background="#202B3B">
                             <Image Margin="5"
                                    Source="Assets/Brand/baseline-mark.png"
                                    Stretch="Uniform" />
@@ -90,16 +90,16 @@
 
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="248" />
+                    <ColumnDefinition Width="250" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
-                <Border Margin="18"
-                        Padding="16"
+                <Border Margin="0"
+                        Padding="18,18,16,18"
                         Background="{StaticResource SidebarBackgroundBrush}"
                         BorderBrush="{StaticResource SoftBorderBrush}"
-                        BorderThickness="1"
-                        CornerRadius="{StaticResource CardCornerRadius}">
+                        BorderThickness="0,0,1,0"
+                        CornerRadius="0">
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto" />
@@ -137,8 +137,8 @@
                         <Border Grid.Row="2"
                                 Margin="4,16,4,4"
                                 Padding="14,12"
-                                Background="#0F172A"
-                                BorderBrush="#263447"
+                                Background="#111827"
+                                BorderBrush="#28364B"
                                 BorderThickness="1"
                                 CornerRadius="{StaticResource ControlCornerRadius}">
                             <Grid>
@@ -162,8 +162,8 @@
                 </Border>
 
                 <Border Grid.Column="1"
-                        Margin="0,18,18,18"
-                        Padding="24"
+                        Margin="22"
+                        Padding="26"
                         Background="{StaticResource PanelBackgroundAltBrush}"
                         BorderBrush="{StaticResource SoftBorderBrush}"
                         BorderThickness="1"
@@ -175,7 +175,7 @@
             </Grid>
 
             <Border Grid.Row="2"
-                    Background="#F4F8FB"
+                    Background="#0F141D"
                     CornerRadius="0,0,28,28">
                 <TextBlock Margin="20,0"
                            VerticalAlignment="Center"

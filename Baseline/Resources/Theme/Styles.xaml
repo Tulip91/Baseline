@@ -4,8 +4,8 @@
     <DropShadowEffect x:Key="CardShadowEffect"
                       BlurRadius="18"
                       ShadowDepth="0"
-                      Color="#220F172A"
-                      Opacity="0.22" />
+                      Color="#AA000000"
+                      Opacity="0.34" />
 
     <Style TargetType="Window">
         <Setter Property="FontFamily" Value="Inter, Segoe UI Variable Text, Segoe UI" />
@@ -218,7 +218,7 @@
                             <Trigger.ExitActions>
                                 <BeginStoryboard Storyboard="{StaticResource NavHoverOff}" />
                             </Trigger.ExitActions>
-                            <Setter TargetName="Chrome" Property="Background" Value="#1F2D3D" />
+                            <Setter TargetName="Chrome" Property="Background" Value="#1B2432" />
                             <Setter Property="Foreground" Value="#F8FAFC" />
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">
@@ -227,8 +227,8 @@
                         <DataTrigger Binding="{Binding IsSelected}" Value="True">
                             <Setter Property="Foreground" Value="#FFFFFF" />
                             <Setter TargetName="Chrome" Property="Background" Value="{StaticResource NavigationSelectedBrush}" />
-                            <Setter TargetName="Chrome" Property="BorderBrush" Value="#1BA7BC" />
-                            <Setter TargetName="AccentRail" Property="Background" Value="#2DD4BF" />
+                            <Setter TargetName="Chrome" Property="BorderBrush" Value="#7C3AED" />
+                            <Setter TargetName="AccentRail" Property="Background" Value="#3B82F6" />
                         </DataTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -309,7 +309,7 @@
                             <Trigger.ExitActions>
                                 <BeginStoryboard Storyboard="{StaticResource TitleBarHoverOff}" />
                             </Trigger.ExitActions>
-                            <Setter TargetName="Chrome" Property="Background" Value="#E8F1F6" />
+                            <Setter TargetName="Chrome" Property="Background" Value="#1D2634" />
                             <Setter TargetName="Chrome" Property="BorderBrush" Value="{StaticResource SoftBorderBrush}" />
                             <Setter Property="Foreground" Value="{StaticResource PrimaryTextBrush}" />
                         </Trigger>
@@ -325,9 +325,9 @@
     <Style x:Key="TitleBarCloseButtonStyle" TargetType="Button" BasedOn="{StaticResource TitleBarButtonStyle}">
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="#FEE2E2" />
-                <Setter Property="BorderBrush" Value="#FCA5A5" />
-                <Setter Property="Foreground" Value="#991B1B" />
+                <Setter Property="Background" Value="#3A1720" />
+                <Setter Property="BorderBrush" Value="#FB7185" />
+                <Setter Property="Foreground" Value="#FFE4E6" />
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -397,7 +397,7 @@
                                 Height="20"
                                 VerticalAlignment="Center"
                                 CornerRadius="7"
-                                Background="#FFFFFF"
+                                Background="#111821"
                                 BorderBrush="{StaticResource SoftBorderBrush}"
                                 BorderThickness="1.2" />
                         <Path x:Name="Check"
@@ -420,7 +420,7 @@
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="Box" Property="BorderBrush" Value="{StaticResource AccentBrush}" />
-                            <Setter TargetName="Box" Property="Background" Value="#F2F8FA" />
+                            <Setter TargetName="Box" Property="Background" Value="#1A2330" />
                         </Trigger>
                         <Trigger Property="IsChecked" Value="True">
                             <Setter TargetName="Box" Property="Background" Value="{StaticResource ButtonBackgroundBrush}" />
@@ -461,12 +461,12 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="Chrome" Property="Background" Value="#F2F8FA" />
+                            <Setter TargetName="Chrome" Property="Background" Value="#1A2330" />
                             <Setter TargetName="Chrome" Property="BorderBrush" Value="{StaticResource SoftBorderBrush}" />
                         </Trigger>
                         <Trigger Property="IsSelected" Value="True">
                             <Setter TargetName="Chrome" Property="Background" Value="{StaticResource NavigationSelectedBrush}" />
-                            <Setter TargetName="Chrome" Property="BorderBrush" Value="#96DDE8" />
+                            <Setter TargetName="Chrome" Property="BorderBrush" Value="#6D5BD0" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -497,10 +497,10 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsHighlighted" Value="True">
-                            <Setter TargetName="Chrome" Property="Background" Value="#F2F8FA" />
+                            <Setter TargetName="Chrome" Property="Background" Value="#1A2330" />
                         </Trigger>
                         <Trigger Property="IsSelected" Value="True">
-                            <Setter TargetName="Chrome" Property="Background" Value="#DCF3F7" />
+                            <Setter TargetName="Chrome" Property="Background" Value="#241A3A" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -547,7 +547,7 @@
                                     <Border Grid.Column="1"
                                             Margin="4"
                                             CornerRadius="{StaticResource CompactCornerRadius}"
-                                            Background="#E8F1F6">
+                                            Background="#1C2532">
                                         <Path Width="10"
                                               Height="6"
                                               HorizontalAlignment="Center"
@@ -627,8 +627,8 @@
                                         <ControlTemplate TargetType="Thumb">
                                             <Border Margin="2"
                                                     CornerRadius="6"
-                                                    Background="#B7C7D6"
-                                                    BorderBrush="#9AAABC"
+                                                    Background="#526179"
+                                                    BorderBrush="#72819A"
                                                     BorderThickness="1" />
                                         </ControlTemplate>
                                     </Thumb.Template>
@@ -652,8 +652,8 @@
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="Foreground" Value="{StaticResource PrimaryTextBrush}" />
         <Setter Property="GridLinesVisibility" Value="Horizontal" />
-        <Setter Property="RowBackground" Value="#FFFFFF" />
-        <Setter Property="AlternatingRowBackground" Value="#F6FAFC" />
+        <Setter Property="RowBackground" Value="#121922" />
+        <Setter Property="AlternatingRowBackground" Value="#17202B" />
         <Setter Property="HorizontalGridLinesBrush" Value="{StaticResource SoftBorderBrush}" />
         <Setter Property="VerticalGridLinesBrush" Value="{StaticResource TransparentBrush}" />
         <Setter Property="HeadersVisibility" Value="Column" />
@@ -661,7 +661,7 @@
         <Setter Property="ColumnHeaderStyle">
             <Setter.Value>
                 <Style TargetType="DataGridColumnHeader">
-                    <Setter Property="Background" Value="#EEF5F8" />
+                    <Setter Property="Background" Value="#1B2430" />
                     <Setter Property="Foreground" Value="{StaticResource SecondaryTextBrush}" />
                     <Setter Property="BorderBrush" Value="{StaticResource SoftBorderBrush}" />
                     <Setter Property="BorderThickness" Value="0,0,0,1" />
@@ -675,10 +675,10 @@
                 <Style TargetType="DataGridRow">
                     <Style.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="#E8F6F8" />
+                            <Setter Property="Background" Value="#1D2938" />
                         </Trigger>
                         <Trigger Property="IsSelected" Value="True">
-                            <Setter Property="Background" Value="#DDF4F7" />
+                            <Setter Property="Background" Value="#251D3F" />
                         </Trigger>
                     </Style.Triggers>
                 </Style>

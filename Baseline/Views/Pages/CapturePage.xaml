@@ -16,252 +16,309 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Capture"
-                   Style="{StaticResource HeaderTitleTextStyle}" />
+        <StackPanel>
+            <StackPanel>
+                <TextBlock Text="Snapshot Workspace"
+                           Style="{StaticResource HeaderTitleTextStyle}" />
+                <TextBlock Margin="0,6,0,0"
+                           Text="Capture the current machine into a reusable baseline."
+                           Foreground="{StaticResource MutedTextBrush}"
+                           FontSize="13.5" />
+            </StackPanel>
 
-        <ScrollViewer Grid.Row="1"
-                      Margin="0,20,0,18"
-                      VerticalScrollBarVisibility="Auto"
-                      HorizontalScrollBarVisibility="Disabled">
+            <StackPanel Margin="0,22,0,0"
+                        Orientation="Horizontal">
+                <Button Width="230"
+                        Height="58"
+                        Content="Capture Snapshot"
+                        Command="{Binding CaptureCommand}" />
+                <Button Margin="14,0,0,0"
+                        Width="142"
+                        Height="58"
+                        Content="Compare"
+                        Style="{StaticResource SecondaryButtonStyle}" />
+            </StackPanel>
+        </StackPanel>
+
+        <Grid Grid.Row="1"
+              Margin="0,24,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="480" />
+                <ColumnDefinition Width="20" />
+                <ColumnDefinition Width="230" />
+            </Grid.ColumnDefinitions>
+
             <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="300" />
-                    <ColumnDefinition Width="16" />
-                    <ColumnDefinition Width="330" />
-                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
 
-                <StackPanel Grid.Column="0">
-                    <Border Style="{StaticResource SectionCardStyle}">
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
-                            </Grid.RowDefinitions>
-                            <TextBlock Text="Profile"
-                                       Style="{StaticResource SectionHeaderTextStyle}" />
-                            <TextBox Grid.Row="1"
-                                     Margin="0,14,0,0"
-                                     Text="{Binding ProfileName, UpdateSourceTrigger=PropertyChanged}" />
-                        </Grid>
-                    </Border>
-
-                    <Border Style="{StaticResource SectionCardStyle}">
+                <UniformGrid Columns="3"
+                             Margin="0,0,0,18">
+                    <Border Style="{StaticResource SectionCardStyle}"
+                            Margin="0,0,14,0">
                         <StackPanel>
                             <TextBlock Text="Categories"
-                                       Style="{StaticResource SectionHeaderTextStyle}" />
-                            <ItemsControl Margin="0,16,0,0"
-                                          ItemsSource="{Binding Categories}">
-                                <ItemsControl.ItemsPanel>
-                                    <ItemsPanelTemplate>
-                                        <UniformGrid Columns="2" />
-                                    </ItemsPanelTemplate>
-                                </ItemsControl.ItemsPanel>
-                                <ItemsControl.ItemTemplate>
-                                    <DataTemplate>
-                                        <Border Margin="0,0,10,10"
-                                                MinHeight="72"
-                                                Padding="14,12"
-                                                Background="{StaticResource PanelBackgroundBrush}"
-                                                BorderBrush="{StaticResource SoftBorderBrush}"
-                                                BorderThickness="1"
-                                                CornerRadius="{StaticResource ControlCornerRadius}">
-                                            <CheckBox Margin="0"
-                                                      VerticalAlignment="Center"
-                                                      IsChecked="{Binding IsSelected}">
-                                                <TextBlock Text="{Binding DisplayName}"
-                                                           TextWrapping="Wrap" />
-                                            </CheckBox>
-                                        </Border>
-                                    </DataTemplate>
-                                </ItemsControl.ItemTemplate>
-                            </ItemsControl>
+                                       Style="{StaticResource MutedLabelTextStyle}" />
+                            <TextBlock Margin="0,8,0,0"
+                                       Text="{Binding SelectedCategoryCount}"
+                                       FontSize="28"
+                                       FontWeight="SemiBold" />
                         </StackPanel>
                     </Border>
-
-                    <Border Style="{StaticResource SectionCardStyle}">
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="*" />
-                            </Grid.RowDefinitions>
-                            <DockPanel LastChildFill="False">
-                                <TextBlock Text="Network"
-                                           Style="{StaticResource SectionHeaderTextStyle}"
-                                           DockPanel.Dock="Left" />
-                                <Button Content="Detect"
-                                        Width="116"
-                                        Style="{StaticResource SecondaryButtonStyle}"
-                                        Command="{Binding RefreshAdaptersCommand}"
-                                        DockPanel.Dock="Right" />
-                            </DockPanel>
-                            <ListBox Grid.Row="1"
-                                     Margin="0,14,0,0"
-                                     ItemsSource="{Binding ActiveAdapters}"
-                                     SelectedItem="{Binding SelectedAdapter}">
-                                <ListBox.ItemTemplate>
-                                    <DataTemplate>
-                                        <StackPanel>
-                                            <TextBlock Text="{Binding Name}"
-                                                       FontWeight="SemiBold" />
-                                            <TextBlock Margin="0,4,0,0"
-                                                       Text="{Binding Description}"
-                                                       TextWrapping="Wrap"
-                                                       Style="{StaticResource MutedLabelTextStyle}" />
-                                        </StackPanel>
-                                    </DataTemplate>
-                                </ListBox.ItemTemplate>
-                            </ListBox>
-                        </Grid>
+                    <Border Style="{StaticResource SectionCardStyle}"
+                            Margin="0,0,14,0">
+                        <StackPanel>
+                            <TextBlock Text="Registry"
+                                       Style="{StaticResource MutedLabelTextStyle}" />
+                            <TextBlock Margin="0,8,0,0"
+                                       Text="{Binding SelectedRegistryTemplateCount}"
+                                       FontSize="28"
+                                       FontWeight="SemiBold" />
+                        </StackPanel>
                     </Border>
-                </StackPanel>
-
-                <StackPanel Grid.Column="2">
-                    <Border Style="{StaticResource SectionCardStyle}">
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="Auto" />
-                            </Grid.RowDefinitions>
-                            <TextBlock Text="Registry Tweaks"
-                                       Style="{StaticResource SectionHeaderTextStyle}" />
-                            <ListBox Grid.Row="1"
-                                     Margin="0,16,0,0"
-                                     MaxHeight="360"
-                                     ItemsSource="{Binding RegistryTemplates}">
-                                <ListBox.ItemTemplate>
-                                    <DataTemplate>
-                                        <Grid>
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="30" />
-                                                <ColumnDefinition Width="*" />
-                                            </Grid.ColumnDefinitions>
-                                            <CheckBox IsChecked="{Binding IsSelected}" />
-                                            <Grid Grid.Column="1">
-                                                <Grid.RowDefinitions>
-                                                    <RowDefinition Height="Auto" />
-                                                    <RowDefinition Height="Auto" />
-                                                </Grid.RowDefinitions>
-                                                <TextBlock Text="{Binding Template.DisplayName}"
-                                                           FontWeight="SemiBold"
-                                                           TextTrimming="CharacterEllipsis" />
-                                                <TextBlock Grid.Row="1"
-                                                           Margin="0,3,0,0"
-                                                           Text="{Binding Template.GroupName}"
-                                                           TextTrimming="CharacterEllipsis"
-                                                           Foreground="{StaticResource AccentBrush}" />
-                                            </Grid>
-                                        </Grid>
-                                    </DataTemplate>
-                                </ListBox.ItemTemplate>
-                            </ListBox>
-                            <Grid Grid.Row="2"
-                                  Margin="0,16,0,0">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="116" />
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="112" />
-                                    <ColumnDefinition Width="Auto" />
-                                </Grid.ColumnDefinitions>
-                                <ComboBox Grid.Column="0"
-                                          MinWidth="116"
-                                          ItemsSource="{StaticResource RegistryRoots}"
-                                          SelectedItem="{Binding CustomRegistryRoot}" />
-                                <TextBox Grid.Column="1"
-                                         Margin="10,0,0,0"
-                                         Text="{Binding CustomRegistryPath, UpdateSourceTrigger=PropertyChanged}" />
-                                <TextBox Grid.Column="2"
-                                         Margin="10,0,0,0"
-                                         Text="{Binding CustomRegistryValueName, UpdateSourceTrigger=PropertyChanged}" />
-                                <Button Grid.Column="3"
-                                        Margin="10,0,0,0"
-                                        Content="Add"
-                                        Command="{Binding AddRegistryEntryCommand}" />
-                            </Grid>
-                        </Grid>
-                    </Border>
-
-                    <Border Style="{StaticResource SectionCardStyle}">
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="Auto" />
-                            </Grid.RowDefinitions>
+                    <Border Style="{StaticResource SectionCardStyle}"
+                            Margin="0">
+                        <StackPanel>
                             <TextBlock Text="Policies"
+                                       Style="{StaticResource MutedLabelTextStyle}" />
+                            <TextBlock Margin="0,8,0,0"
+                                       Text="{Binding SelectedPolicyTemplateCount}"
+                                       FontSize="28"
+                                       FontWeight="SemiBold" />
+                        </StackPanel>
+                    </Border>
+                </UniformGrid>
+
+                <Border Grid.Row="1"
+                        Style="{StaticResource SectionCardStyle}"
+                        Margin="0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <DockPanel>
+                            <TextBlock Text="Capture Scope"
                                        Style="{StaticResource SectionHeaderTextStyle}" />
-                            <ListBox Grid.Row="1"
-                                     Margin="0,16,0,0"
-                                     MaxHeight="300"
-                                     ItemsSource="{Binding PolicyTemplates}">
-                                <ListBox.ItemTemplate>
-                                    <DataTemplate>
-                                        <Grid>
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="30" />
-                                                <ColumnDefinition Width="*" />
-                                            </Grid.ColumnDefinitions>
-                                            <CheckBox IsChecked="{Binding IsSelected}" />
-                                            <Grid Grid.Column="1">
-                                                <Grid.RowDefinitions>
-                                                    <RowDefinition Height="Auto" />
-                                                    <RowDefinition Height="Auto" />
-                                                </Grid.RowDefinitions>
-                                                <TextBlock Text="{Binding Template.DisplayName}"
+                            <TextBlock DockPanel.Dock="Right"
+                                       Margin="10,0,0,0"
+                                       Text="Selected"
+                                       Foreground="{StaticResource AccentGlowBrush}"
+                                       FontSize="13"
+                                       FontWeight="SemiBold" />
+                        </DockPanel>
+
+                        <ItemsControl Grid.Row="1"
+                                      Margin="0,18,0,0"
+                                      ItemsSource="{Binding Categories}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <UniformGrid Columns="2" />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Border Margin="0,0,12,12"
+                                            MinHeight="78"
+                                            Padding="16,12"
+                                            Background="{StaticResource InputBackgroundBrush}"
+                                            BorderBrush="{StaticResource SoftBorderBrush}"
+                                            BorderThickness="1"
+                                            CornerRadius="{StaticResource ControlCornerRadius}">
+                                        <CheckBox Margin="0"
+                                                  VerticalAlignment="Center"
+                                                  IsChecked="{Binding IsSelected}">
+                                            <StackPanel>
+                                                <TextBlock Text="{Binding DisplayName}"
                                                            FontWeight="SemiBold"
                                                            TextTrimming="CharacterEllipsis" />
-                                                <TextBlock Grid.Row="1"
-                                                           Margin="0,3,0,0"
-                                                           Text="{Binding Template.GroupName}"
-                                                           TextTrimming="CharacterEllipsis"
-                                                           Foreground="{StaticResource AccentBrush}" />
-                                            </Grid>
-                                        </Grid>
-                                    </DataTemplate>
-                                </ListBox.ItemTemplate>
-                            </ListBox>
-                            <Grid Grid.Row="2"
-                                  Margin="0,16,0,0">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="116" />
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="112" />
-                                    <ColumnDefinition Width="Auto" />
-                                </Grid.ColumnDefinitions>
-                                <ComboBox Grid.Column="0"
-                                          MinWidth="116"
-                                          ItemsSource="{StaticResource RegistryRoots}"
-                                          SelectedItem="{Binding CustomPolicyRoot}" />
-                                <TextBox Grid.Column="1"
-                                         Margin="10,0,0,0"
-                                         Text="{Binding CustomPolicyPath, UpdateSourceTrigger=PropertyChanged}" />
-                                <TextBox Grid.Column="2"
-                                         Margin="10,0,0,0"
-                                         Text="{Binding CustomPolicyValueName, UpdateSourceTrigger=PropertyChanged}" />
-                                <Button Grid.Column="3"
-                                        Margin="10,0,0,0"
-                                        Content="Add"
-                                        Command="{Binding AddPolicyEntryCommand}" />
-                            </Grid>
-                        </Grid>
-                    </Border>
-                </StackPanel>
-            </Grid>
-        </ScrollViewer>
+                                                <TextBlock Margin="0,4,0,0"
+                                                           Text="{Binding Description}"
+                                                           Style="{StaticResource MutedLabelTextStyle}"
+                                                           TextTrimming="CharacterEllipsis" />
+                                            </StackPanel>
+                                        </CheckBox>
+                                    </Border>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
 
-        <Border Grid.Row="2"
-                Padding="10,8"
-                Background="{StaticResource TransparentBrush}"
-                CornerRadius="{StaticResource CardCornerRadius}">
-            <DockPanel>
-                <Button DockPanel.Dock="Right"
-                        Width="180"
-                        Content="Capture Profile"
-                        Command="{Binding CaptureCommand}" />
-            </DockPanel>
-        </Border>
+                        <Grid Grid.Row="2"
+                              Margin="0,12,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="14" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <TextBox Text="{Binding ProfileName, UpdateSourceTrigger=PropertyChanged}" />
+                            <Button Grid.Column="2"
+                                    Width="150"
+                                    Content="Save Baseline"
+                                    Command="{Binding CaptureCommand}" />
+                        </Grid>
+                    </Grid>
+                </Border>
+            </Grid>
+
+            <Grid Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Border Style="{StaticResource SectionCardStyle}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="Baseline Readiness"
+                                   Style="{StaticResource SectionHeaderTextStyle}" />
+
+                        <StackPanel Grid.Row="1"
+                                    Margin="0,18,0,0"
+                                    Orientation="Horizontal">
+                            <StackPanel Width="90">
+                                <TextBlock Text="Adapters"
+                                           Style="{StaticResource MutedLabelTextStyle}" />
+                                <TextBlock Margin="0,6,0,0"
+                                           Text="{Binding AdapterCount}"
+                                           FontSize="24"
+                                           FontWeight="SemiBold" />
+                            </StackPanel>
+                            <StackPanel>
+                                <TextBlock Text="Mode"
+                                           Style="{StaticResource MutedLabelTextStyle}" />
+                                <TextBlock Margin="0,6,0,0"
+                                           Text="JSON"
+                                           FontSize="18"
+                                           FontWeight="SemiBold" />
+                            </StackPanel>
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="2"
+                                    Margin="0,20,0,0">
+                            <DockPanel Margin="0,0,0,10">
+                                <TextBlock Text="Rollback metadata"
+                                           Foreground="{StaticResource SecondaryTextBrush}" />
+                                <TextBlock DockPanel.Dock="Right"
+                                           Text="Ready"
+                                           Foreground="{StaticResource SuccessBrush}" />
+                            </DockPanel>
+                            <DockPanel Margin="0,0,0,10">
+                                <TextBlock Text="Compare report"
+                                           Foreground="{StaticResource SecondaryTextBrush}" />
+                                <TextBlock DockPanel.Dock="Right"
+                                           Text="After capture"
+                                           Foreground="{StaticResource WarningBrush}" />
+                            </DockPanel>
+                            <DockPanel>
+                                <TextBlock Text="Apply plan"
+                                           Foreground="{StaticResource SecondaryTextBrush}" />
+                                <TextBlock DockPanel.Dock="Right"
+                                           Text="Selective"
+                                           Foreground="{StaticResource AccentGlowBrush}" />
+                            </DockPanel>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+
+                <Border Grid.Row="1"
+                        Style="{StaticResource SectionCardStyle}"
+                        Margin="0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <DockPanel>
+                            <TextBlock Text="Registry + Policy"
+                                       Style="{StaticResource SectionHeaderTextStyle}" />
+                            <TextBlock DockPanel.Dock="Right"
+                                       Text="Curated"
+                                       Foreground="{StaticResource AccentGlowBrush}"
+                                       FontSize="13"
+                                       FontWeight="SemiBold" />
+                        </DockPanel>
+
+                        <ScrollViewer Grid.Row="1"
+                                      Margin="0,16,0,0"
+                                      VerticalScrollBarVisibility="Auto"
+                                      HorizontalScrollBarVisibility="Disabled">
+                            <StackPanel>
+                                <TextBlock Text="Registry Tweaks"
+                                           Style="{StaticResource MutedLabelTextStyle}" />
+                                <ListBox Margin="0,8,0,16"
+                                         MaxHeight="190"
+                                         ItemsSource="{Binding RegistryTemplates}">
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="28" />
+                                                    <ColumnDefinition Width="*" />
+                                                </Grid.ColumnDefinitions>
+                                                <CheckBox IsChecked="{Binding IsSelected}" />
+                                                <StackPanel Grid.Column="1">
+                                                    <TextBlock Text="{Binding Template.DisplayName}"
+                                                               FontWeight="SemiBold"
+                                                               TextTrimming="CharacterEllipsis" />
+                                                    <TextBlock Margin="0,3,0,0"
+                                                               Text="{Binding Template.GroupName}"
+                                                               Foreground="{StaticResource AccentGlowBrush}"
+                                                               TextTrimming="CharacterEllipsis" />
+                                                </StackPanel>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+
+                                <TextBlock Text="Policies"
+                                           Style="{StaticResource MutedLabelTextStyle}" />
+                                <ListBox Margin="0,8,0,0"
+                                         MaxHeight="150"
+                                         ItemsSource="{Binding PolicyTemplates}">
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="28" />
+                                                    <ColumnDefinition Width="*" />
+                                                </Grid.ColumnDefinitions>
+                                                <CheckBox IsChecked="{Binding IsSelected}" />
+                                                <StackPanel Grid.Column="1">
+                                                    <TextBlock Text="{Binding Template.DisplayName}"
+                                                               FontWeight="SemiBold"
+                                                               TextTrimming="CharacterEllipsis" />
+                                                    <TextBlock Margin="0,3,0,0"
+                                                               Text="{Binding Template.GroupName}"
+                                                               Foreground="{StaticResource AccentGlowBrush}"
+                                                               TextTrimming="CharacterEllipsis" />
+                                                </StackPanel>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+                            </StackPanel>
+                        </ScrollViewer>
+
+                        <Button Grid.Row="2"
+                                Margin="0,14,0,0"
+                                Content="Detect Network"
+                                Style="{StaticResource SecondaryButtonStyle}"
+                                Command="{Binding RefreshAdaptersCommand}" />
+                    </Grid>
+                </Border>
+            </Grid>
+        </Grid>
     </Grid>
 </UserControl>
