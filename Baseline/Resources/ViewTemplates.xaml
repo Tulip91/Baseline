@@ -1,0 +1,24 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:viewModels="clr-namespace:BaseLine.ViewModels"
+                    xmlns:views="clr-namespace:BaseLine.Views.Pages">
+    <DataTemplate DataType="{x:Type viewModels:CapturePageViewModel}">
+        <views:CapturePage />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type viewModels:ProfilesPageViewModel}">
+        <views:ProfilesPage />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type viewModels:ComparePageViewModel}">
+        <views:ComparePage />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type viewModels:ApplyPageViewModel}">
+        <views:ApplyPage />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type viewModels:RollbackPageViewModel}">
+        <views:RollbackPage />
+    </DataTemplate>
+</ResourceDictionary>
