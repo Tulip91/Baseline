@@ -45,9 +45,9 @@
         <Grid Grid.Row="1"
               Margin="0,24,0,0">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="480" />
+                <ColumnDefinition Width="720" />
                 <ColumnDefinition Width="20" />
-                <ColumnDefinition Width="230" />
+                <ColumnDefinition Width="380" />
             </Grid.ColumnDefinitions>
 
             <Grid>
@@ -103,16 +103,19 @@
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
 
-                        <DockPanel>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
                             <TextBlock Text="Capture Scope"
                                        Style="{StaticResource SectionHeaderTextStyle}" />
-                            <TextBlock DockPanel.Dock="Right"
-                                       Margin="10,0,0,0"
+                            <TextBlock Grid.Column="1"
                                        Text="Selected"
                                        Foreground="{StaticResource AccentGlowBrush}"
                                        FontSize="13"
                                        FontWeight="SemiBold" />
-                        </DockPanel>
+                        </Grid>
 
                         <ItemsControl Grid.Row="1"
                                       Margin="0,18,0,0"
@@ -205,27 +208,39 @@
 
                         <StackPanel Grid.Row="2"
                                     Margin="0,20,0,0">
-                            <DockPanel Margin="0,0,0,10">
+                            <Grid Margin="0,0,0,10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
                                 <TextBlock Text="Rollback metadata"
                                            Foreground="{StaticResource SecondaryTextBrush}" />
-                                <TextBlock DockPanel.Dock="Right"
+                                <TextBlock Grid.Column="1"
                                            Text="Ready"
                                            Foreground="{StaticResource SuccessBrush}" />
-                            </DockPanel>
-                            <DockPanel Margin="0,0,0,10">
+                            </Grid>
+                            <Grid Margin="0,0,0,10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
                                 <TextBlock Text="Compare report"
                                            Foreground="{StaticResource SecondaryTextBrush}" />
-                                <TextBlock DockPanel.Dock="Right"
+                                <TextBlock Grid.Column="1"
                                            Text="After capture"
                                            Foreground="{StaticResource WarningBrush}" />
-                            </DockPanel>
-                            <DockPanel>
+                            </Grid>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
                                 <TextBlock Text="Apply plan"
                                            Foreground="{StaticResource SecondaryTextBrush}" />
-                                <TextBlock DockPanel.Dock="Right"
+                                <TextBlock Grid.Column="1"
                                            Text="Selective"
                                            Foreground="{StaticResource AccentGlowBrush}" />
-                            </DockPanel>
+                            </Grid>
                         </StackPanel>
                     </Grid>
                 </Border>
@@ -240,15 +255,19 @@
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
 
-                        <DockPanel>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
                             <TextBlock Text="Registry + Policy"
                                        Style="{StaticResource SectionHeaderTextStyle}" />
-                            <TextBlock DockPanel.Dock="Right"
+                            <TextBlock Grid.Column="1"
                                        Text="Curated"
                                        Foreground="{StaticResource AccentGlowBrush}"
                                        FontSize="13"
                                        FontWeight="SemiBold" />
-                        </DockPanel>
+                        </Grid>
 
                         <ScrollViewer Grid.Row="1"
                                       Margin="0,16,0,0"
