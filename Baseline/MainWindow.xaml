@@ -126,6 +126,7 @@
                                     <Button Command="{Binding SelectCommand}"
                                             Style="{StaticResource NavigationButtonStyle}">
                                         <TextBlock Text="{Binding Label}"
+                                                   Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}"
                                                    FontSize="15.5"
                                                    FontWeight="SemiBold" />
                                     </Button>

@@ -28,9 +28,9 @@
                       HorizontalScrollBarVisibility="Disabled">
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="380" />
-                    <ColumnDefinition Width="18" />
-                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="300" />
+                    <ColumnDefinition Width="16" />
+                    <ColumnDefinition Width="330" />
                 </Grid.ColumnDefinitions>
 
                 <StackPanel Grid.Column="0">
@@ -140,13 +140,20 @@
                                                 <ColumnDefinition Width="*" />
                                             </Grid.ColumnDefinitions>
                                             <CheckBox IsChecked="{Binding IsSelected}" />
-                                            <StackPanel Grid.Column="1">
+                                            <Grid Grid.Column="1">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                </Grid.RowDefinitions>
                                                 <TextBlock Text="{Binding Template.DisplayName}"
-                                                           FontWeight="SemiBold" />
-                                                <TextBlock Margin="0,3,0,0"
+                                                           FontWeight="SemiBold"
+                                                           TextTrimming="CharacterEllipsis" />
+                                                <TextBlock Grid.Row="1"
+                                                           Margin="0,3,0,0"
                                                            Text="{Binding Template.GroupName}"
+                                                           TextTrimming="CharacterEllipsis"
                                                            Foreground="{StaticResource AccentBrush}" />
-                                            </StackPanel>
+                                            </Grid>
                                         </Grid>
                                     </DataTemplate>
                                 </ListBox.ItemTemplate>
@@ -154,13 +161,13 @@
                             <Grid Grid.Row="2"
                                   Margin="0,16,0,0">
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="176" />
+                                    <ColumnDefinition Width="116" />
                                     <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="180" />
+                                    <ColumnDefinition Width="112" />
                                     <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
                                 <ComboBox Grid.Column="0"
-                                          MinWidth="176"
+                                          MinWidth="116"
                                           ItemsSource="{StaticResource RegistryRoots}"
                                           SelectedItem="{Binding CustomRegistryRoot}" />
                                 <TextBox Grid.Column="1"
@@ -198,13 +205,20 @@
                                                 <ColumnDefinition Width="*" />
                                             </Grid.ColumnDefinitions>
                                             <CheckBox IsChecked="{Binding IsSelected}" />
-                                            <StackPanel Grid.Column="1">
+                                            <Grid Grid.Column="1">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                </Grid.RowDefinitions>
                                                 <TextBlock Text="{Binding Template.DisplayName}"
-                                                           FontWeight="SemiBold" />
-                                                <TextBlock Margin="0,3,0,0"
+                                                           FontWeight="SemiBold"
+                                                           TextTrimming="CharacterEllipsis" />
+                                                <TextBlock Grid.Row="1"
+                                                           Margin="0,3,0,0"
                                                            Text="{Binding Template.GroupName}"
+                                                           TextTrimming="CharacterEllipsis"
                                                            Foreground="{StaticResource AccentBrush}" />
-                                            </StackPanel>
+                                            </Grid>
                                         </Grid>
                                     </DataTemplate>
                                 </ListBox.ItemTemplate>
@@ -212,13 +226,13 @@
                             <Grid Grid.Row="2"
                                   Margin="0,16,0,0">
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="176" />
+                                    <ColumnDefinition Width="116" />
                                     <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="180" />
+                                    <ColumnDefinition Width="112" />
                                     <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
                                 <ComboBox Grid.Column="0"
-                                          MinWidth="176"
+                                          MinWidth="116"
                                           ItemsSource="{StaticResource RegistryRoots}"
                                           SelectedItem="{Binding CustomPolicyRoot}" />
                                 <TextBox Grid.Column="1"
