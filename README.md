@@ -1,52 +1,67 @@
 # Baseline
 
-Baseline is a Windows utility for capturing, comparing, and replicating system configuration. It is designed to help you record a known-good setup, inspect what changed over time, and use that reference point when rebuilding or tuning another Windows installation.
+Baseline is a WPF desktop application for capturing a known-good Windows configuration and reproducing it on another machine in a selective, rollback-capable way.
 
-![Baseline app screenshot](image.png)
+## What It Is
 
-## What It Does
+- Profile-based Windows environment capture
+- Compare current machine state against a saved profile
+- Apply selected differences with per-item results
+- Record rollback data before apply and restore app-managed changes later
 
-- Captures a baseline snapshot of Windows configuration.
-- Compares a current machine against a saved baseline.
-- Helps replicate settings from a preferred setup.
-- Gives you a repeatable reference point before and after system changes.
+## What It Is Not
 
-## Quick Start
+- Full system imaging
+- Full registry export or import
+- Driver migration
+- Arbitrary BCD editor
+- System restore replacement
+- Credential or profile cloning tool
 
-1. Download or clone this repository.
-2. Open the `Baseline` folder.
-3. Run `BaseLine.exe` on Windows.
-4. Capture a baseline before making major system changes.
-5. Compare later snapshots to understand what changed.
+## Supported v1 Categories
 
-## Repository Contents
+- Services
+- Boot Behavior Settings
+- Registry Tweaks
+- Policies
+- Network
+- Startup Environment
+- Scheduled Tasks
+- Power Configuration
 
-| Path | Description |
-| --- | --- |
-| `Baseline/BaseLine.exe` | Windows executable for the app. |
-| `Baseline/BaseLine.dll` | Application runtime assembly. |
-| `Baseline/BaseLine.runtimeconfig.json` | .NET runtime configuration. |
-| `Baseline/Assets/` | App assets used by the executable. |
-| `image.png` | Screenshot used in this README. |
+## Workflow
 
-## Recommended Workflow
+1. Capture a profile from the source machine.
+2. Save or load a profile file.
+3. Compare the profile against the current machine.
+4. Select mismatches or individual items to apply.
+5. Use rollback history to restore app-managed changes from a prior apply session.
 
-1. Start from a clean or freshly tuned Windows setup.
-2. Run Baseline and save a reference snapshot.
-3. Make your system changes, installs, or tweaks.
-4. Capture or compare again to review the difference.
-5. Keep the baseline somewhere safe so it can be reused later.
+## Project Structure
 
-## Requirements
+- `BaseLine/Core`: strongly typed domain and workflow models
+- `BaseLine/Infrastructure`: dialogs, command execution, registry access, storage, composition root
+- `BaseLine/Services`: category handlers, workflow orchestration, machine and network discovery
+- `BaseLine/ViewModels`: shell and workflow page view models
+- `BaseLine/Views`: main window and page views
+- `BaseLine/Resources`: theme dictionaries and data templates
 
-- Windows
-- .NET 8 runtime, if the app does not start on your machine
-- Administrator permissions may be needed for some system-level configuration checks
+## Profile and Rollback Storage
 
-## Notes
+- Profiles are JSON files intended for operator review and reuse.
+- Rollback records are stored under the local app data path for the current user.
+- Rollback is scoped to settings changed by Baseline during apply sessions.
 
-Baseline is intended for configuration tracking and repeatable setup work. Review any changes before applying them to another machine, especially when moving between different Windows versions, hardware, or user accounts.
+## Current v1 Limitations
 
-## Project Status
+- Startup folder entries are captured for review but are not recreated during apply.
+- Scheduled tasks support enable and disable flow; full task recreation is intentionally out of scope for v1.
+- Network adapter apply is adapter-aware, but when the captured adapter is missing it falls back to the first active adapter with a warning in compare.
+- Some curated registry and policy entries only appear when the source machine already has those values defined.
+- Administrative privileges are still required by Windows for many apply and rollback operations.
 
-This repository currently contains a published build of the app. Source code, releases, and detailed capture format documentation can be added later as the project grows.
+## Build
+
+```powershell
+dotnet build BaseLine.slnx
+```

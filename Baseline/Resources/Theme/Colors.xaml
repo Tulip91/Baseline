@@ -1,0 +1,110 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Color x:Key="WindowStartColor">#E7ECF2</Color>
+    <Color x:Key="WindowEndColor">#C9D4DF</Color>
+    <Color x:Key="ShellSurfaceStartColor">#F8FAFC</Color>
+    <Color x:Key="ShellSurfaceEndColor">#EDF2F7</Color>
+    <Color x:Key="TitleBarStartColor">#FFFFFF</Color>
+    <Color x:Key="TitleBarEndColor">#F4F8FB</Color>
+    <Color x:Key="SidebarStartColor">#111827</Color>
+    <Color x:Key="SidebarEndColor">#182231</Color>
+    <Color x:Key="PanelStartColor">#FFFFFF</Color>
+    <Color x:Key="PanelEndColor">#F8FBFD</Color>
+    <Color x:Key="PanelAltStartColor">#F4F8FB</Color>
+    <Color x:Key="PanelAltEndColor">#EEF4F7</Color>
+    <Color x:Key="InputStartColor">#FFFFFF</Color>
+    <Color x:Key="InputEndColor">#F7FAFC</Color>
+    <Color x:Key="BorderColor">#D6DEE8</Color>
+    <Color x:Key="BorderSoftColor">#E3EAF1</Color>
+    <Color x:Key="AccentColor">#0891B2</Color>
+    <Color x:Key="AccentHoverColor">#06A3C7</Color>
+    <Color x:Key="AccentPressedColor">#0E7490</Color>
+    <Color x:Key="AccentMutedColor">#D9F4F8</Color>
+    <Color x:Key="AccentGlowColor">#22D3EE</Color>
+    <Color x:Key="PrimaryTextColor">#172033</Color>
+    <Color x:Key="SecondaryTextColor">#425166</Color>
+    <Color x:Key="MutedTextColor">#7A8798</Color>
+    <Color x:Key="DisabledTextColor">#A8B3C1</Color>
+    <Color x:Key="SuccessColor">#059669</Color>
+    <Color x:Key="WarningColor">#D97706</Color>
+    <Color x:Key="DangerColor">#DC2626</Color>
+    <Color x:Key="OverlayColor">#A6000000</Color>
+
+    <CornerRadius x:Key="WindowCornerRadius">24</CornerRadius>
+    <CornerRadius x:Key="CardCornerRadius">14</CornerRadius>
+    <CornerRadius x:Key="ControlCornerRadius">10</CornerRadius>
+    <CornerRadius x:Key="CompactCornerRadius">8</CornerRadius>
+    <Thickness x:Key="CardBorderThickness">1</Thickness>
+
+    <LinearGradientBrush x:Key="WindowBackgroundBrush" StartPoint="0,0" EndPoint="1,1">
+        <GradientStop Color="{StaticResource WindowStartColor}" Offset="0" />
+        <GradientStop Color="{StaticResource WindowEndColor}" Offset="1" />
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="ShellSurfaceBrush" StartPoint="0,0" EndPoint="1,1">
+        <GradientStop Color="{StaticResource ShellSurfaceStartColor}" Offset="0" />
+        <GradientStop Color="{StaticResource ShellSurfaceEndColor}" Offset="1" />
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="TitleBarBackgroundBrush" StartPoint="0,0" EndPoint="1,0">
+        <GradientStop Color="{StaticResource TitleBarStartColor}" Offset="0" />
+        <GradientStop Color="{StaticResource TitleBarEndColor}" Offset="1" />
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="SidebarBackgroundBrush" StartPoint="0,0" EndPoint="0,1">
+        <GradientStop Color="{StaticResource SidebarStartColor}" Offset="0" />
+        <GradientStop Color="{StaticResource SidebarEndColor}" Offset="1" />
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="PanelBackgroundBrush" StartPoint="0,0" EndPoint="1,1">
+        <GradientStop Color="{StaticResource PanelStartColor}" Offset="0" />
+        <GradientStop Color="{StaticResource PanelEndColor}" Offset="1" />
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="PanelBackgroundAltBrush" StartPoint="0,0" EndPoint="1,1">
+        <GradientStop Color="{StaticResource PanelAltStartColor}" Offset="0" />
+        <GradientStop Color="{StaticResource PanelAltEndColor}" Offset="1" />
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="InputBackgroundBrush" StartPoint="0,0" EndPoint="1,1">
+        <GradientStop Color="{StaticResource InputStartColor}" Offset="0" />
+        <GradientStop Color="{StaticResource InputEndColor}" Offset="1" />
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="ButtonBackgroundBrush" StartPoint="0,0" EndPoint="1,1">
+        <GradientStop Color="#0EA5B7" Offset="0" />
+        <GradientStop Color="{StaticResource AccentColor}" Offset="1" />
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="ButtonHoverBackgroundBrush" StartPoint="0,0" EndPoint="1,1">
+        <GradientStop Color="#13B8CC" Offset="0" />
+        <GradientStop Color="{StaticResource AccentHoverColor}" Offset="1" />
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="ButtonPressedBackgroundBrush" StartPoint="0,0" EndPoint="1,1">
+        <GradientStop Color="#0E7490" Offset="0" />
+        <GradientStop Color="{StaticResource AccentPressedColor}" Offset="1" />
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="SecondaryButtonBackgroundBrush" StartPoint="0,0" EndPoint="1,1">
+        <GradientStop Color="#FFFFFF" Offset="0" />
+        <GradientStop Color="#F5F9FC" Offset="1" />
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="SecondaryButtonHoverBackgroundBrush" StartPoint="0,0" EndPoint="1,1">
+        <GradientStop Color="#EAF6F8" Offset="0" />
+        <GradientStop Color="#DFF1F5" Offset="1" />
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="NavigationSelectedBrush" StartPoint="0,0" EndPoint="1,1">
+        <GradientStop Color="#173043" Offset="0" />
+        <GradientStop Color="#0F4658" Offset="1" />
+    </LinearGradientBrush>
+
+    <SolidColorBrush x:Key="PrimaryTextBrush" Color="{StaticResource PrimaryTextColor}" />
+    <SolidColorBrush x:Key="SecondaryTextBrush" Color="{StaticResource SecondaryTextColor}" />
+    <SolidColorBrush x:Key="MutedTextBrush" Color="{StaticResource MutedTextColor}" />
+    <SolidColorBrush x:Key="DisabledTextBrush" Color="{StaticResource DisabledTextColor}" />
+    <SolidColorBrush x:Key="SurfaceBorderBrush" Color="{StaticResource BorderColor}" />
+    <SolidColorBrush x:Key="SoftBorderBrush" Color="{StaticResource BorderSoftColor}" />
+    <SolidColorBrush x:Key="AccentBrush" Color="{StaticResource AccentColor}" />
+    <SolidColorBrush x:Key="AccentHoverBrush" Color="{StaticResource AccentHoverColor}" />
+    <SolidColorBrush x:Key="AccentPressedBrush" Color="{StaticResource AccentPressedColor}" />
+    <SolidColorBrush x:Key="AccentMutedBrush" Color="{StaticResource AccentMutedColor}" />
+    <SolidColorBrush x:Key="AccentGlowBrush" Color="{StaticResource AccentGlowColor}" />
+    <SolidColorBrush x:Key="SuccessBrush" Color="{StaticResource SuccessColor}" />
+    <SolidColorBrush x:Key="WarningBrush" Color="{StaticResource WarningColor}" />
+    <SolidColorBrush x:Key="DangerBrush" Color="{StaticResource DangerColor}" />
+    <SolidColorBrush x:Key="OverlayBrush" Color="{StaticResource OverlayColor}" />
+    <SolidColorBrush x:Key="TransparentBrush" Color="#00FFFFFF" />
+
+    <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+</ResourceDictionary>
