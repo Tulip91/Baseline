@@ -140,11 +140,11 @@
                                             <StackPanel>
                                                 <TextBlock Text="{Binding DisplayName}"
                                                            FontWeight="SemiBold"
-                                                           TextTrimming="CharacterEllipsis" />
+                                                           TextWrapping="Wrap" />
                                                 <TextBlock Margin="0,4,0,0"
                                                            Text="{Binding Description}"
                                                            Style="{StaticResource MutedLabelTextStyle}"
-                                                           TextTrimming="CharacterEllipsis" />
+                                                           TextWrapping="Wrap" />
                                             </StackPanel>
                                         </CheckBox>
                                     </Border>
@@ -283,18 +283,17 @@
                                         <DataTemplate>
                                             <Grid>
                                                 <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="28" />
+                                                    <ColumnDefinition Width="40" />
                                                     <ColumnDefinition Width="*" />
                                                 </Grid.ColumnDefinitions>
                                                 <CheckBox IsChecked="{Binding IsSelected}" />
                                                 <StackPanel Grid.Column="1">
                                                     <TextBlock Text="{Binding Template.DisplayName}"
                                                                FontWeight="SemiBold"
-                                                               TextTrimming="CharacterEllipsis" />
+                                                               TextWrapping="Wrap" />
                                                     <TextBlock Margin="0,3,0,0"
                                                                Text="{Binding Template.GroupName}"
-                                                               Foreground="{StaticResource AccentGlowBrush}"
-                                                               TextTrimming="CharacterEllipsis" />
+                                                               Foreground="{StaticResource AccentGlowBrush}" />
                                                 </StackPanel>
                                             </Grid>
                                         </DataTemplate>
@@ -310,18 +309,17 @@
                                         <DataTemplate>
                                             <Grid>
                                                 <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="28" />
+                                                    <ColumnDefinition Width="40" />
                                                     <ColumnDefinition Width="*" />
                                                 </Grid.ColumnDefinitions>
                                                 <CheckBox IsChecked="{Binding IsSelected}" />
                                                 <StackPanel Grid.Column="1">
                                                     <TextBlock Text="{Binding Template.DisplayName}"
                                                                FontWeight="SemiBold"
-                                                               TextTrimming="CharacterEllipsis" />
+                                                               TextWrapping="Wrap" />
                                                     <TextBlock Margin="0,3,0,0"
                                                                Text="{Binding Template.GroupName}"
-                                                               Foreground="{StaticResource AccentGlowBrush}"
-                                                               TextTrimming="CharacterEllipsis" />
+                                                               Foreground="{StaticResource AccentGlowBrush}" />
                                                 </StackPanel>
                                             </Grid>
                                         </DataTemplate>

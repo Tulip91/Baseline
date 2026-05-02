@@ -162,8 +162,8 @@
                 </Border>
 
                 <Border Grid.Column="1"
-                        Margin="22"
-                        Padding="26"
+                        Margin="14"
+                        Padding="18"
                         Background="{StaticResource TransparentBrush}"
                         BorderThickness="0"
                         CornerRadius="{StaticResource CardCornerRadius}">
