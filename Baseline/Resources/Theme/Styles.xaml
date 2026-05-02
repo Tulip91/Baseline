@@ -2,10 +2,10 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:infra="clr-namespace:BaseLine.Infrastructure">
     <DropShadowEffect x:Key="CardShadowEffect"
-                      BlurRadius="18"
+                      BlurRadius="10"
                       ShadowDepth="0"
                       Color="#AA000000"
-                      Opacity="0.34" />
+                      Opacity="0.16" />
 
     <Style TargetType="Window">
         <Setter Property="FontFamily" Value="Inter, Segoe UI Variable Text, Segoe UI" />
@@ -337,8 +337,8 @@
 
     <Style x:Key="SectionCardStyle" TargetType="Border">
         <Setter Property="Background" Value="{StaticResource PanelBackgroundBrush}" />
-        <Setter Property="BorderBrush" Value="{StaticResource SoftBorderBrush}" />
-        <Setter Property="BorderThickness" Value="{StaticResource CardBorderThickness}" />
+        <Setter Property="BorderBrush" Value="{StaticResource TransparentBrush}" />
+        <Setter Property="BorderThickness" Value="0" />
         <Setter Property="CornerRadius" Value="{StaticResource CardCornerRadius}" />
         <Setter Property="Padding" Value="18" />
         <Setter Property="Margin" Value="0,0,0,14" />

@@ -42,14 +42,14 @@ public sealed class CapturePageViewModel : PageViewModelBase
 
         Categories = new ObservableCollection<CategorySelectionItemViewModel>
         {
-            new(ProfileCategory.Services, "Services", "Service start types, delayed auto-start, and status."),
+            new(ProfileCategory.Services, "Services", "Start type and status."),
             new(ProfileCategory.BootBehavior, "Boot Behavior", "Supported BCD settings only."),
-            new(ProfileCategory.RegistryTweaks, "Registry Tweaks", "Curated structured tweaks and custom entries."),
-            new(ProfileCategory.Policies, "Policies", "Registry-backed policy values under supported policy hives."),
-            new(ProfileCategory.Network, "Network", "Active adapters, DNS, and selected TCP values."),
-            new(ProfileCategory.StartupEnvironment, "Startup", "Run keys, startup folders, and approvals."),
-            new(ProfileCategory.ScheduledTasks, "Scheduled Tasks", "Non-Microsoft and logon/startup tasks."),
-            new(ProfileCategory.PowerConfiguration, "Power", "Active plan, hibernate, fast startup, and key settings.")
+            new(ProfileCategory.RegistryTweaks, "Registry Tweaks", "Curated tweaks and entries."),
+            new(ProfileCategory.Policies, "Policies", "Supported policy values."),
+            new(ProfileCategory.Network, "Network", "Adapters and TCP values."),
+            new(ProfileCategory.StartupEnvironment, "Startup", "Run keys and approvals."),
+            new(ProfileCategory.ScheduledTasks, "Scheduled Tasks", "Logon and startup tasks."),
+            new(ProfileCategory.PowerConfiguration, "Power", "Plan and startup power.")
         };
 
         RegistryTemplates = new ObservableCollection<RegistryTemplateSelectionViewModel>(_registryTemplateCatalog.RegistryDefaults.Select(item => new RegistryTemplateSelectionViewModel(item)));

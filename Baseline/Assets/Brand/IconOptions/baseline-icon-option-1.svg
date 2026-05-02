@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Baseline icon option 1">
+  <defs>
+    <linearGradient id="bg" x1="42" y1="30" x2="214" y2="226" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B7CFF"/>
+      <stop offset="1" stop-color="#7C3AED"/>
+    </linearGradient>
+    <linearGradient id="chip" x1="79" y1="67" x2="176" y2="183" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#DFF6FF"/>
+      <stop offset="1" stop-color="#9DBDFF"/>
+    </linearGradient>
+  </defs>
+  <rect x="24" y="24" width="208" height="208" rx="52" fill="#101722"/>
+  <rect x="36" y="36" width="184" height="184" rx="42" fill="url(#bg)"/>
+  <path d="M73 102c0-12 10-22 22-22h66c12 0 22 10 22 22v58c0 12-10 22-22 22H95c-12 0-22-10-22-22v-58Z" fill="url(#chip)"/>
+  <path d="M92 122h72M92 144h72" stroke="#172033" stroke-width="14" stroke-linecap="round"/>
+  <path d="M84 65v-19M112 65v-19M144 65v-19M172 65v-19M84 210v-19M112 210v-19M144 210v-19M172 210v-19M46 96h19M46 128h19M46 160h19M191 96h19M191 128h19M191 160h19" stroke="#60A5FA" stroke-width="9" stroke-linecap="round"/>
+</svg>

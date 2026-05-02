@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Baseline icon option 3">
+  <defs>
+    <linearGradient id="bg" x1="35" y1="34" x2="220" y2="221" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1E293B"/>
+      <stop offset="1" stop-color="#0B1020"/>
+    </linearGradient>
+    <linearGradient id="bolt" x1="83" y1="42" x2="171" y2="213" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#22D3EE"/>
+      <stop offset=".55" stop-color="#3B82F6"/>
+      <stop offset="1" stop-color="#8B5CF6"/>
+    </linearGradient>
+  </defs>
+  <rect x="24" y="24" width="208" height="208" rx="52" fill="url(#bg)"/>
+  <path d="M93 62h78l-28 59h39L94 205l22-67H74l19-76Z" fill="url(#bolt)"/>
+  <path d="M77 192h99" stroke="#A78BFA" stroke-width="14" stroke-linecap="round"/>
+  <path d="M91 207h72" stroke="#38BDF8" stroke-width="9" stroke-linecap="round"/>
+</svg>

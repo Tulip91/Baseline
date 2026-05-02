@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Baseline icon option 2">
+  <defs>
+    <linearGradient id="bg" x1="39" y1="28" x2="211" y2="227" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#101722"/>
+      <stop offset="1" stop-color="#17112A"/>
+    </linearGradient>
+    <linearGradient id="ring" x1="59" y1="54" x2="196" y2="200" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#38BDF8"/>
+      <stop offset="1" stop-color="#8B5CF6"/>
+    </linearGradient>
+  </defs>
+  <rect x="24" y="24" width="208" height="208" rx="52" fill="url(#bg)"/>
+  <path d="M128 51 194 89v78l-66 38-66-38V89l66-38Z" fill="none" stroke="url(#ring)" stroke-width="18" stroke-linejoin="round"/>
+  <path d="M90 110 128 88l38 22v44l-38 22-38-22v-44Z" fill="#172033" stroke="#A78BFA" stroke-width="10" stroke-linejoin="round"/>
+  <path d="M106 133h44" stroke="#E0F2FE" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="128" cy="133" r="10" fill="#38BDF8"/>
+</svg>

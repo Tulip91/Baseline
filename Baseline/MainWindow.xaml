@@ -21,7 +21,7 @@
                             ResizeBorderThickness="6" />
     </shell:WindowChrome.WindowChrome>
 
-    <Border Margin="10"
+    <Border Margin="0"
             CornerRadius="{StaticResource WindowCornerRadius}"
             Background="{StaticResource ShellSurfaceBrush}"
             BorderBrush="{StaticResource SurfaceBorderBrush}"
@@ -164,9 +164,8 @@
                 <Border Grid.Column="1"
                         Margin="22"
                         Padding="26"
-                        Background="{StaticResource PanelBackgroundAltBrush}"
-                        BorderBrush="{StaticResource SoftBorderBrush}"
-                        BorderThickness="1"
+                        Background="{StaticResource TransparentBrush}"
+                        BorderThickness="0"
                         CornerRadius="{StaticResource CardCornerRadius}">
                     <ContentControl x:Name="PageHost"
                                     Content="{Binding CurrentPage}"
